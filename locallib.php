@@ -310,7 +310,7 @@ function geogebra_print_content($geogebra, $context) {
     }
 
     echo '<script type="text/javascript" src="//www.geogebratube.org/scripts/deployggb.js"></script>';
-    echo '<script>window.onload = function() {
+    echo '<script>window.addEventListener("load", function() {
         var applet = new GGBApplet({';
     foreach ($attribnames as $name) {
         echo $name.': '.geogebra_get_script_param($name, $attributes).',';
@@ -320,7 +320,7 @@ function geogebra_print_content($geogebra, $context) {
     }
     echo '}, true);
         applet.inject("applet_container", "preferHTML5");
-    }
+    }, false);
     </script>
     <div id="applet_container" style="width: 100%; height: '.$geogebra->height.'px;"></div>';
 
